@@ -1,7 +1,5 @@
 ﻿using HI.SimpleRedirect.Search.SearchTypes;
-using Sitecore;
 using Sitecore.ContentSearch;
-using Sitecore.ContentSearch.Linq.Utilities;
 using Sitecore.Diagnostics;
 using Sitecore.Pipelines.HttpRequest;
 using System;
@@ -15,12 +13,11 @@ namespace HI.SimpleRedirect.Pipelines.HttpRequest
         public override void Process(HttpRequestArgs args)
         {
 
-            // This processer is added to the pipeline after the Sitecore Item Resolver.  We want to skip everything if the item resolved successfully.            
             Assert.ArgumentNotNull(args, "args");
 
             if (!Sitecore.Context.Site.Name.ToLower().Equals("shell") && args.LocalPath != Constants.Paths.VisitorIdentification && args.LocalPath != Constants.Paths.KeepAlive)
             {
-                var indexName = "SimpleRedirect";
+                var indexName = "HI.SimpleRedirect";
 
                 try
                 {
@@ -55,6 +52,7 @@ namespace HI.SimpleRedirect.Pipelines.HttpRequest
             }
         }
     }
+
     public static class Constants
     {
         public static class Paths

@@ -41,7 +41,7 @@ namespace HI.SimpleRedirect.Pipelines.HttpRequest
                                 args.Context.Response.StatusCode = 301;
                                 args.Context.Response.AddHeader("Location", results.FirstOrDefault().Target);
                                 args.Context.Response.End();
-                            }                           
+                            }
                         }
                     }
                 }
@@ -51,15 +51,5 @@ namespace HI.SimpleRedirect.Pipelines.HttpRequest
                 }
             }
         }
-    }
-
-    public static class Constants
-    {
-        public static class Paths
-        {
-            public static string VisitorIdentification = "/layouts/system/visitoridentification";
-            public static string MediaLibrary = "/sitecore/media library/";
-            public static string KeepAlive = "/keepalive";
-        }
-    }
+    }   
 }
